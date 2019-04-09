@@ -1,0 +1,144 @@
+{
+  "id": "bfa5f359-21ad-41b4-8dcc-e14c4c192f79",
+  "name": "WorkItemUpdate",
+  "friendlyName": "Work Item Update",
+  "description": "Work Item Update",
+  "author": "Anton Kondratyev",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],
+  "runsOn": [
+    "Agent",
+    "MachineGroup",
+    "Server"
+  ],
+  "helpMarkDown": "",
+  "icons": {
+    "default": "icon.png"
+  },
+  "demands": [],
+  "version": {
+    "Major": 1,
+    "Minor": 0,
+    "Patch": 0
+  },
+  "instanceNameFormat": "Work Item Update",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced Options",
+      "isExpanded": false
+    }
+  ],
+  "inputs": [
+    {
+      "name": "workItemType",
+      "type": "string",
+      "label": "Work Item Type",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "stateFrom",
+      "type": "string",
+      "label": "State From",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "reasonFrom",
+      "type": "string",
+      "label": "Reason From",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "stateTo",
+      "type": "string",
+      "label": "State To",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "reasonTo",
+      "type": "string",
+      "label": "Reason To",
+      "required": true,
+      "defaultValue": "",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "assignedToCreator",
+      "type": "boolean",
+      "label": "Assigned to Creator",
+      "required": false,
+      "defaultValue": false,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "linkToBuild",
+      "type": "boolean",
+      "label": "Add Link to Build",
+      "required": false,
+      "defaultValue": false,
+      "helpMarkDown": ""
+    },
+    {
+      "name": "authType",
+      "type": "pickList",
+      "label": "Authentication",
+      "required": true,
+      "defaultValue": "vssToken",
+      "options": {
+        "vssToken": "VSS",
+        "oAuth": "OAuth",
+        "serviceEndpoint": "Endpoint",
+        "basic": "Basic"
+      },
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "connectedServiceName",
+      "type": "connectedService:Generic",
+      "label": "Service Endpoint",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "authType = serviceEndpoint",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "username",
+      "type": "string",
+      "label": "Username",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "authType = basic",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    },
+    {
+      "name": "password",
+      "type": "string",
+      "label": "Password",
+      "required": true,
+      "defaultValue": "",
+      "visibleRule": "authType = basic",
+      "groupName": "advanced",
+      "helpMarkDown": ""
+    }
+  ],
+  "execution": {
+    "Node": {
+      "target": "index.js",
+      "argumentFormat": ""
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "manifestVersion": 1,
+  "id": "workitem-update",
+  "name": "Work Item Update",
+  "version": "1.0.0",
+  "publisher": "kondratyevanton",
+  "public": true,
+  "description": "",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "categories": [
+    "Build and release"
+  ],
+  "content": {
+    "details": {
+      "path": "README.md"
+    },
+    "license": {
+      "path": "LICENSE"
+    }
+  },
+  "icons": {
+    "default": "images/logo.png"
+  },
+  "scopes": [
+    "vso.build",
+    "vso.release",
+    "vso.work_write"
+  ],
+  "contributions": [
+    {
+      "id": "workitem-update",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "tasks/workitem-update"
+      }
+    }
+  ],
+  "contributionTypes": [],
+  "files": [
+    {
+      "path": "tasks/workitem-update/"
+    }
+  ]
+}
